@@ -21,8 +21,8 @@
     },
     "images": {
       "thumbnail": "/images/project2_thumbnail.jpg",
-      "description1": "/images/project2_image1.jpg",
-      "description2": "/images/project2_image2.jpg"
+       "description1": "/images/project1_image1.jpg",
+      "description2": "/images/project1_image2.jpg"
     }
   },
   {
@@ -34,8 +34,8 @@
     },
     "images": {
       "thumbnail": "/images/project3_thumbnail.jpg",
-      "description1": "/images/project3_image1.jpg",
-      "description2": "/images/project3_image2.jpg"
+      "description1": "/images/project1_image1.jpg",
+      "description2": "/images/project1_image2.jpg"
     }
   }
 ]
