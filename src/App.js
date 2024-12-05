@@ -1,15 +1,18 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import PortfolioList from "./components/PortfolioList";
-import PortfolioSingle from "./components/PortfolioSingle";
+import Home from "./pages/Home";
+import PortfolioList from "./pages/PortfolioList";
 import data from "./data.json";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<PortfolioList data={data} />} />
-        <Route path="/portfolio/:id" element={<PortfolioSingle data={data} />} />
+        {/* Home 컴포넌트 */}
+        <Route path="/" element={<Home />} />
+
+        {/* PortfolioList 컴포넌트 */}
+        <Route path="/portfolio" element={<PortfolioList data={data} />} />
       </Routes>
     </Router>
   );
