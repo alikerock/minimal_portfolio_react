@@ -2,6 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
+
     <footer>
       <div className="quote_area">
         <h3 className="heading6">Need a quote?</h3>
@@ -28,17 +29,17 @@ const Footer = () => {
         <ul className="social_links">
           <li>
             <a href="#">
-              <img src="images/twitter.png" alt="twitter" />
+              <img src="/images/twitter.png" alt="twitter" />
             </a>
           </li>
           <li>
             <a href="#">
-              <img src="images/facebook.png" alt="facebook" />
+              <img src="/images/facebook.png" alt="facebook" />
             </a>
           </li>
           <li>
             <a href="#">
-              <img src="images/dribble.png" alt="dribble" />
+              <img src="/images/dribble.png" alt="dribble" />
             </a>
           </li>
         </ul>
@@ -48,6 +49,7 @@ const Footer = () => {
         </p>
       </div>
     </footer>
+
   );
 };
 

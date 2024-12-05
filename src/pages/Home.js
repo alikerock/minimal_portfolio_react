@@ -6,10 +6,10 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <section>
+      <main class="content">
         <h2>Welcome to Minimal Portfolio</h2>
         <p>This is the homepage of your portfolio site.</p>
-      </section>
+      </main>
       <Footer />
     </div>
   );
