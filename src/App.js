@@ -5,7 +5,6 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Insert from "./pages/Insert";
-import PortfolioList from "./pages/PortfolioList";
 import PortfolioSingle from "./pages/PortfolioSingle";
 // import data from "./data.json";
 import { supabase } from './supabase'
