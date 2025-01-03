@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { supabase } from "../supabase";
 
-const Insert = () => {  
+const Insert = () => {
 
   const [session, setSession] = useState(null)
 
@@ -76,14 +76,9 @@ const Insert = () => {
     } else {
       console.log("데이터 삽입 성공");
       alert("데이터 입력이 완료되었습니다."); // 알림 표시
-     // navigate("/"); // 홈으로 이동
+      navigate("/"); // 홈으로 이동
     }
 
-      // 파일 업로드
-      if (file) {
-        console.log(file);
-        await uploadFile(file); // 첨부파일이 있는 경우에만 업로드
-      }
   };
 
   // 파일 업로드 함수
@@ -102,7 +97,7 @@ const Insert = () => {
   if (!session) {
     return (<Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />)
   }
-  else { 
+  else {
     return (
       <div>
         <Header />
