@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { supabase } from "../supabase";
 
-const Insert = () => {
+const Insert = ({ setProjects, projects }) => {
 
   const [session, setSession] = useState(null)
 
@@ -63,18 +63,28 @@ const Insert = () => {
         return; // 업로드 실패 시 데이터 삽입 중단
       }
     }
-
-    // 데이터 삽입
-    const { error } = await supabase.from("portfolio").insert({
+    // 삽입할 데이터 변수 생성
+    const newData = {
       title: formData.title,
       content: formData.content,
-      thumbnail: thumbnailPath, // 업로드된 경로 추가      
-    });
+      thumbnail: thumbnailPath, // 업로드된 경로 추가
+    };
+
+    // 데이터 삽입
+    const { error } = await supabase.from("portfolio").insert(newData);
 
     if (error) {
       console.error("데이터 삽입 실패:", error);
+      alert("데이터 삽입 실패");
     } else {
-      console.log("데이터 삽입 성공");
+      console.log("데이터 삽입 성공:", newData);
+
+      // projects가 배열인지 확인 후 상태 업데이트
+      if (Array.isArray(projects)) {
+        setProjects([newData, ...projects]); // 새 항목을 리스트 맨 앞에 추가
+      } else {
+        console.error("projects가 배열이 아닙니다.");
+      }
       alert("데이터 입력이 완료되었습니다."); // 알림 표시
       navigate("/"); // 홈으로 이동
     }
