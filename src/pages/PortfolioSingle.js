@@ -1,15 +1,26 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import { useParams,  Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { supabase } from "../supabase";
 
-const PortfolioSingle = ({ data }) => {
+const PortfolioSingle = () => {
   const { id } = useParams(); // URL의 id를 가져옴
-
   const currentId = parseInt(id, 10); // id를 숫자로 변환
-  const item = data[currentId];
 
-  if (!item) return <p>Item not found</p>;
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    async function getData() {
+      const { data: project } = await supabase.from('portfolio')
+      .select()
+      .eq('id', currentId);
+      setData(project[0]);       
+    }
+    getData()  
+  }, [currentId]);
+
 
   // 이전/다음 프로젝트 ID 계산
   const prevId = currentId > 0 ? currentId - 1 : null;
@@ -23,25 +34,25 @@ const PortfolioSingle = ({ data }) => {
           <div className="row">
             <div className="col-md-8 description">
               <div className="contents shadow">
-                <img src={item.images.description1} alt={`${item.title}`} />
+                {/* <img src={item.description1} alt={`${item.title}`} /> */}
                 <p>image description 1</p>
               </div>
               <div className="contents shadow">
-                <img src={item.images.description2} alt={`${item.title}`} />
+                {/* <img src={item.description2} alt={`${item.title}`} /> */}
                 <p>image description 2</p>
               </div>
             </div>
             <div className="col-md-4 portfolio_info">
               <div className="contents shadow">
-                <h2>{item.title}</h2>
-                <p>{item.content}</p>
+                <h2>{data.title}</h2>
+                <p>{data.content}</p>
                 <p className="link">
-                  <a href="#">Visit site &rarr;</a>
+                  <a href="/">Visit site &rarr;</a>
                 </p>
                 <hr className="double" />
                 <blockquote>
-                  <p>{item.review.content}</p>
-                  <small>- {item.review.writer}</small>
+                  {/* <p>{item.content}</p>
+                  <small>- {item.writer}</small> */}
                 </blockquote>
                 <p className="nav">
                   {/* 이전 프로젝트로 이동 */}

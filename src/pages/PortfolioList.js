@@ -12,7 +12,7 @@ const PortfolioList = ({ data }) => {
               {data.map((item, index) => (
                 <div key={index} className="col-md-4">
                     <div class="contents shadow">
-                        <img src={item.images.thumbnail} alt={item.title}/>
+                        <img src={item.thumbnail} alt={item.title}/>
                         <div class="hover_contents">
                             <div class="list_info">
                                 <h3><a href={`/portfolio/${index}`}>{item.title}</a> 
